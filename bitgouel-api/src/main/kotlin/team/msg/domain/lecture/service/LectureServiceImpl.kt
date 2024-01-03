@@ -156,6 +156,19 @@ class LectureServiceImpl(
 
         registeredLectureRepository.save(registeredLecture)
 
+        val updateCreditStudent = Student(
+            id = student.id,
+            user = student.user,
+            club = student.club,
+            grade = student.grade,
+            classRoom = student.classRoom,
+            number = student.number,
+            cohort = student.cohort,
+            credit = student.credit + lecture.credit,
+            studentRole = student.studentRole
+        )
+
+        studentRepository.save(updateCreditStudent)
     }
 
     /**
