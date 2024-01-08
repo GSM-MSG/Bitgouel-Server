@@ -32,6 +32,13 @@ data class UserResponse (
                 of(it)
             }
         )
+
+        fun detailOf(user: User) = UserDetailsResponse(
+            id = user.id,
+            name = user.name,
+            authority = user.authority,
+            approveStatus = user.approveStatus
+        )
     }
 }
 
@@ -52,5 +59,11 @@ data class AdminUserResponse(
 
 data class UsersResponse(
     val users: Page<AdminUserResponse>
+)
 
+data class UserDetailsResponse(
+    val id: UUID,
+    val name: String,
+    val authority: Authority,
+    val approveStatus: ApproveStatus
 )

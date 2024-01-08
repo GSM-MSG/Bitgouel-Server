@@ -110,6 +110,7 @@ class SecurityConfig(
             .mvcMatchers(HttpMethod.GET, "/admin").hasRole(ADMIN)
             .mvcMatchers(HttpMethod.PATCH, "/admin/{user_id}").hasRole(ADMIN)
             .mvcMatchers(HttpMethod.DELETE, "/admin/{user_id}").hasRole(ADMIN)
+            .mvcMatchers(HttpMethod.GET, "/admin/{user_id}").hasRole(ADMIN)
 
             // inquiry
             .mvcMatchers(HttpMethod.POST, "/inquiry").authenticated()
