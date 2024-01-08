@@ -13,4 +13,10 @@ class CustomStudentActivityHistoryRepositoryImpl(
             .where(studentActivityHistory.student.id.eq(studentId))
             .execute()
     }
+
+    override fun deleteAllByStudentActivityId(studentActivityId: UUID) {
+        queryFactory.delete(studentActivityHistory)
+            .where(studentActivityHistory.studentActivityId.eq(studentActivityId))
+            .execute()
+    }
 }

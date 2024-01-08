@@ -4,4 +4,5 @@ import java.util.*
 
 interface CustomStudentActivityHistoryRepository {
     fun deleteAllByStudentId(studentId: UUID)
+    fun deleteAllByStudentActivityId(studentActivityId: UUID)
 }

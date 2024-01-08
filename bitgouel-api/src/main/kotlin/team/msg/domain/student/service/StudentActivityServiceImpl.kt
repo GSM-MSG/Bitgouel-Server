@@ -12,6 +12,7 @@ import team.msg.domain.club.model.Club
 import team.msg.domain.company.model.CompanyInstructor
 import team.msg.domain.government.model.Government
 import team.msg.domain.professor.model.Professor
+import team.msg.domain.student.event.ApproveStudentActivityEvent
 import team.msg.domain.student.event.UpdateStudentActivityEvent
 import team.msg.domain.student.exception.ForbiddenStudentActivityException
 import team.msg.domain.student.exception.StudentActivityNotFoundException
@@ -159,6 +160,7 @@ class StudentActivityServiceImpl(
             teacher = studentActivity.teacher
         )
 
+        applicationEventPublisher.publishEvent(ApproveStudentActivityEvent(id))
         studentActivityRepository.save(updatedStudentActivity)
     }
 
