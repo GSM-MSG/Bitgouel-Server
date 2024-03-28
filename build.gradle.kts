@@ -4,6 +4,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.13.RELEASE"
     kotlin("plugin.spring") version "1.7.10"
     kotlin("plugin.jpa") version "1.7.10"
+    id("jacoco")
 }
 
 subprojects {
@@ -54,4 +55,29 @@ allprojects {
         mavenCentral()
     }
 
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        xml.outputLocation.set(File("$buildDir/reports/jacoco/test/jacocoTestReport.xml"))
+    }
+
+    var excludes = mutableListOf<String>()
+    excludes.add("some/path/for/exclude")
+
+    classDirectories.setFrom(
+        sourceSets.main.get().output.asFileTree.matching {
+            exclude(excludes)
+        }
+    )
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
 }
