@@ -39,7 +39,6 @@ class SchoolServiceImpl(
                 SchoolResponse(
                     id = it.id,
                     schoolName = it.name,
-                    field = it.field,
                     line = it.line,
                     logoImageUrl = it.logoImageUrl,
                     clubs = ClubResponse.schoolOf(clubs)
@@ -64,7 +63,6 @@ class SchoolServiceImpl(
         val school = School(
             logoImageUrl = imageName,
             name = request.schoolName,
-            field = request.field,
             line = request.line
         )
 
@@ -95,7 +93,6 @@ class SchoolServiceImpl(
             id = id,
             logoImageUrl = imageName,
             name = request.schoolName,
-            field = request.field,
             line = request.line
         )
         schoolRepository.save(updateSchool)
