@@ -71,7 +71,6 @@ class SchoolServiceImpl(
         schoolRepository.save(school)
     }
 
-
     /**
      * 학교를 수정하는 비지니스 로직
      */
@@ -115,11 +114,11 @@ class SchoolServiceImpl(
         schoolRepository.deleteById(id)
     }
 
-
     companion object {
         const val JPEG = "image/jpeg"
         const val PNG = "image/png"
         const val JPG = "image/jpg"
         const val HEIC = "image/heic"
     }
+
 }

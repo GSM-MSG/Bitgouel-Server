@@ -15,4 +15,6 @@ interface ClubRepository : JpaRepository<Club, Long>, CustomClubRepository {
 
     @Query("SELECT c FROM Club c JOIN FETCH c.school s WHERE s = :school")
     fun findAllBySchool(school: School): List<Club>
+
+    fun existsByName(name: String): Boolean
 }
