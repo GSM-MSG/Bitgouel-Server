@@ -154,6 +154,9 @@ class SecurityConfig(
             .mvcMatchers(HttpMethod.POST, "/government").hasRole(ADMIN)
             .mvcMatchers(HttpMethod.DELETE, "/government/{id}").hasRole(ADMIN)
 
+            // university 
+            .mvcMatchers(HttpMethod.GET, "/university").permitAll()
+
             // actuator
             .mvcMatchers(HttpMethod.GET, "/actuator/prometheus").permitAll()
 
